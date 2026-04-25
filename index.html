@@ -253,7 +253,7 @@
     /* --- SKILLS --- */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
 
@@ -349,7 +349,7 @@
   <div class="hero">
     <div class="hero-inner">
       <h1>Andrew C.<br>Yuraitis<span class="accent">.</span></h1>
-      <p>Informatics &amp; security graduate from Indiana University — building dashboards, automation pipelines, and tools that turn raw data into decisions.</p>
+      <p>Informatics &amp; security graduate from Indiana University — building dashboards, automation pipelines, and tools that turn raw data into decisions. Active user of AI-assisted development workflows, including local LLMs and Claude Code.</p>
       <div class="cta-row">
         <a href="#projects" class="btn btn-primary">View Projects</a>
         <a href="#contact" class="btn btn-outline">Get in Touch</a>
@@ -370,6 +370,7 @@
       <div class="exp-desc">
         <ul>
           <li>Migrated executive Power BI dashboards to SAP S/4 HANA backend for C-suite reporting</li>
+          <li>Delivered a custom executive dashboard to the President of North America using Python for data cleaning and DAX for advanced KPI calculations</li>
           <li>Built a Python app for Store Manager KPI target tracking</li>
           <li>Designed SQL-backed real-time dashboard refreshes</li>
         </ul>
@@ -418,21 +419,31 @@
     <div class="project-grid">
       <div class="project-card">
         <h3>Polymarket Predictive ML Bot</h3>
-        <p>Machine learning bot for predicting Polymarket outcomes. Scrapes live market data and generates trade signals with confidence scoring.</p>
+        <p>End-to-end ML system that scrapes live Polymarket prediction market data and applies a multi-signal model to generate trade recommendations, with confidence scoring, edge calculation, and Kelly-criterion sizing. Integrated with an interactive dashboard displaying real-time signals. Developed using local LLMs via Ollama and Claude Code for accelerated iteration.</p>
         <div class="tag-row">
           <span class="tag">Python</span>
           <span class="tag">ML</span>
-          <span class="tag">APIs</span>
+          <span class="tag">Ollama</span>
+          <span class="tag">Claude Code</span>
         </div>
       </div>
 
       <div class="project-card">
         <h3>ICE Detention Operations Analysis</h3>
-        <p>Comprehensive data analysis of ICE detention facility operations using Python and Tableau, with a formal report typeset in LaTeX.</p>
+        <p>End-to-end public data analytics project analyzing multi-year detention trends using data cleaning, relational modeling, visualization, and formal reporting.</p>
         <div class="tag-row">
           <span class="tag">Python</span>
           <span class="tag">Tableau</span>
           <span class="tag">LaTeX</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>Fuel Cost Calculator</h3>
+        <p>API-driven tool estimating trip fuel costs for logistics optimization.</p>
+        <div class="tag-row">
+          <span class="tag">Python</span>
+          <span class="tag">API</span>
         </div>
       </div>
     </div>
@@ -445,35 +456,48 @@
 
     <div class="skills-grid">
       <div class="skill-group">
-        <h3>Languages</h3>
+        <h3>Data Analytics</h3>
+        <ul>
+          <li>Data Modeling</li>
+          <li>ETL</li>
+          <li>KPI Reporting</li>
+          <li>Data Cleaning</li>
+          <li>Dashboard Design</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <h3>Tools &amp; Platforms</h3>
+        <ul>
+          <li>Power BI</li>
+          <li>DAX</li>
+          <li>SSMS</li>
+          <li>SAP S/4 HANA</li>
+          <li>Figma</li>
+          <li>N8N</li>
+          <li>MuleSoft</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <h3>Programming</h3>
         <ul>
           <li>Python</li>
           <li>SQL</li>
           <li>Java</li>
           <li>C</li>
-          <li>DAX</li>
+          <li>HTML / CSS</li>
         </ul>
       </div>
 
       <div class="skill-group">
-        <h3>Tools & Platforms</h3>
+        <h3>AI &amp; Automation</h3>
         <ul>
-          <li>Power BI</li>
-          <li>SAP S/4 HANA</li>
-          <li>SSMS</li>
-          <li>Tableau</li>
-          <li>Figma</li>
-        </ul>
-      </div>
-
-      <div class="skill-group">
-        <h3>Specializations</h3>
-        <ul>
-          <li>Data Modeling</li>
-          <li>ETL Pipelines</li>
-          <li>KPI Reporting</li>
-          <li>Dashboard Design</li>
-          <li>LLM Orchestration</li>
+          <li>Claude Code</li>
+          <li>Ollama</li>
+          <li>Local LLM Orchestration</li>
+          <li>Prompt Engineering</li>
+          <li>N8N Workflows</li>
         </ul>
       </div>
     </div>
