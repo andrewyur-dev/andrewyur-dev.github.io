@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andrew C. Yuraitis — Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    @font-face {
+      font-family: 'Inter';
+      src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0a0a;
+      color: #e5e5e5;
+      line-height: 1.6;
+    }
+
+    /* --- NAV --- */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      z-index: 100;
+    }
+
+    nav .inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+
+    nav .logo span { color: #6d9aff; }
+
+    nav a {
+      color: #999;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-left: 28px;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: #fff; }
+
+    /* --- HERO --- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 24px 80px;
+    }
+
+    .hero-inner { max-width: 680px; text-align: center; }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 .accent { color: #6d9aff; }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: #999;
+      max-width: 520px;
+      margin: 0 auto 36px;
+    }
+
+    .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: #6d9aff;
+      color: #0a0a0a;
+    }
+
+    .btn-primary:hover { background: #8bb3ff; }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #e5e5e5;
+    }
+
+    .btn-outline:hover { border-color: rgba(255,255,255,0.35); color: #fff; }
+
+    /* --- SECTIONS --- */
+    section {
+      padding: 100px 24px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #6d9aff;
+      margin-bottom: 12px;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+      margin-bottom: 48px;
+    }
+
+    /* --- EXPERIENCE --- */
+    .exp-card {
+      background: #111;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 20px;
+      transition: border-color 0.2s;
+    }
+
+    .exp-card:hover { border-color: rgba(109,154,255,0.25); }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .exp-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .exp-company {
+      font-weight: 500;
+      color: #6d9aff;
+    }
+
+    .exp-meta {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .exp-desc {
+      margin-top: 12px;
+      font-size: 0.95rem;
+      color: #aaa;
+      line-height: 1.7;
+    }
+
+    .exp-desc ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .exp-desc li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 6px;
+    }
+
+    .exp-desc li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #6d9aff;
+      font-size: 0.85rem;
+    }
+
+    /* --- PROJECTS --- */
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 640px) {
+      .project-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.2rem; }
+    }
+
+    .project-card {
+      background: #111;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 28px;
+      transition: border-color 0.2s;
+    }
+
+    .project-card:hover { border-color: rgba(109,154,255,0.25); }
+
+    .project-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .project-card p {
+      font-size: 0.9rem;
+      color: #999;
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(109,154,255,0.1);
+      color: #6d9aff;
+    }
+
+    /* --- SKILLS --- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 640px) {
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .skill-group {
+      background: #111;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 28px;
+    }
+
+    .skill-group h3 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #6d9aff;
+      margin-bottom: 14px;
+    }
+
+    .skill-group ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .skill-group li {
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-bottom: 6px;
+    }
+
+    /* --- CONTACT --- */
+    .contact {
+      text-align: center;
+      padding: 100px 24px 80px;
+    }
+
+    .contact h2 { margin-bottom: 16px; }
+
+    .contact p {
+      color: #999;
+      font-size: 1.05rem;
+      margin-bottom: 32px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      color: #6d9aff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .contact-links a:hover { color: #8bb3ff; }
+
+    /* --- FOOTER --- */
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      font-size: 0.8rem;
+      color: #444;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="inner">
+      <div class="logo">AY<span>.</span></div>
+      <div>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <h1>Andrew C.<br>Yuraitis<span class="accent">.</span></h1>
+      <p>Data analytics &amp; informatics student building dashboards, automation pipelines, and tools that turn raw data into decisions.</p>
+      <div class="cta-row">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-label">Experience</div>
+    <h2>Where I've Worked</h2>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div class="exp-title">Data Analytics Intern — <span class="exp-company">Bvlgari</span></div>
+        <div class="exp-meta">June – Aug 2025 · NYC</div>
+      </div>
+      <div class="exp-desc">
+        <ul>
+          <li>Migrated Power BI reports to SAP S/4 HANA backend</li>
+          <li>Built a Python app for Store Manager KPI target tracking</li>
+          <li>Designed SQL-backed real-time dashboard refreshes</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div class="exp-title">IT Data Specialist Intern — <span class="exp-company">Solution Tree</span></div>
+        <div class="exp-meta">May 2024 – June 2025 · Bloomington, IN</div>
+      </div>
+      <div class="exp-desc">
+        <ul>
+          <li>Built Power BI dashboards and developed data models</li>
+          <li>Ensured data integrity across enterprise systems</li>
+          <li>Supported analytics workflows and reporting pipelines</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label">Projects</div>
+    <h2>What I've Built</h2>
+
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Polymarket Predictive ML Bot</h3>
+        <p>Machine learning bot for predicting Polymarket outcomes. Currently in development with a focus on real-time data ingestion and probabilistic modeling.</p>
+        <div class="tag-row">
+          <span class="tag">Python</span>
+          <span class="tag">ML</span>
+          <span class="tag">APIs</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>ICE Detention Operations Analysis</h3>
+        <p>Comprehensive data analysis of ICE detention facility operations using Python and Tableau, with a formal report typeset in LaTeX.</p>
+        <div class="tag-row">
+          <span class="tag">Python</span>
+          <span class="tag">Tableau</span>
+          <span class="tag">LaTeX</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label">Skills</div>
+    <h2>My Toolkit</h2>
+
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Languages</h3>
+        <ul>
+          <li>Python</li>
+          <li>SQL</li>
+          <li>Java</li>
+          <li>C</li>
+          <li>DAX</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <h3>Tools & Platforms</h3>
+        <ul>
+          <li>Power BI</li>
+          <li>SAP S/4 HANA</li>
+          <li>SSMS</li>
+          <li>Tableau</li>
+          <li>Figma</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <h3>Specializations</h3>
+        <ul>
+          <li>Data Modeling</li>
+          <li>ETL Pipelines</li>
+          <li>KPI Reporting</li>
+          <li>Dashboard Design</li>
+          <li>LLM Orchestration</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="section-label">Contact</div>
+    <h2>Let's Connect</h2>
+    <p>I'm always open to new opportunities, collaborations, or just a good conversation about data and tech.</p>
+    <div class="contact-links">
+      <a href="mailto:a.yuraitis04@gmail.com">Email</a>
+      <a href="https://github.com/andrewyur-dev" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/andrewyuraitis" target="_blank">LinkedIn</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2026 Andrew C. Yuraitis
+  </footer>
+
+</body>
+</html>
