@@ -232,11 +232,33 @@
       margin-bottom: 8px;
     }
 
+    .project-card h3 a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .project-card h3 a:hover {
+      color: #8bb3ff;
+    }
+
     .project-card p {
       font-size: 0.9rem;
       color: #999;
       margin-bottom: 16px;
       line-height: 1.6;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-bottom: 16px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #6d9aff;
+      text-decoration: none;
+    }
+
+    .project-link:hover {
+      color: #8bb3ff;
     }
 
     .tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -418,6 +440,17 @@
 
     <div class="project-grid">
       <div class="project-card">
+        <h3><a href="https://github.com/andrewyur-dev/ice-detention-analysis-fy2025" target="_blank">ICE Detention Operations Analysis</a></h3>
+        <p>End-to-end public data analytics project analyzing multi-year detention trends using data cleaning, relational modeling, visualization, and formal reporting.</p>
+        <a href="https://public.tableau.com/app/profile/andrew.yuraitis/viz/ICE_Analysis_Dashboard_ONLY/Dashboard1-OverviewScope" target="_blank" class="project-link">View Tableau Dashboard →</a>
+        <div class="tag-row">
+          <span class="tag">Python</span>
+          <span class="tag">Tableau</span>
+          <span class="tag">LaTeX</span>
+        </div>
+      </div>
+
+      <div class="project-card">
         <h3>Polymarket Predictive ML Bot</h3>
         <p>End-to-end ML system that scrapes live Polymarket prediction market data and applies a multi-signal model to generate trade recommendations, with confidence scoring, edge calculation, and Kelly-criterion sizing. Integrated with an interactive dashboard displaying real-time signals. Developed using local LLMs via Ollama and Claude Code for accelerated iteration.</p>
         <div class="tag-row">
@@ -425,16 +458,6 @@
           <span class="tag">ML</span>
           <span class="tag">Ollama</span>
           <span class="tag">Claude Code</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <h3>ICE Detention Operations Analysis</h3>
-        <p>End-to-end public data analytics project analyzing multi-year detention trends using data cleaning, relational modeling, visualization, and formal reporting.</p>
-        <div class="tag-row">
-          <span class="tag">Python</span>
-          <span class="tag">Tableau</span>
-          <span class="tag">LaTeX</span>
         </div>
       </div>
 
